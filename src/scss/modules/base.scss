@@ -1,0 +1,19 @@
+body {
+  font-family: "Inter", sans-serif;
+  font-size: toRem(16);
+  line-height: 140%;
+  font-weight: 400;
+  // color: $black;
+  // background-color: #ffffff;
+}
+.wrapper {
+  // min-height: 100%;
+  // overflow: hidden;
+  // display: flex;
+  // flex-direction: column;
+}
+._container {
+  max-width: toPx($widthContainer);
+  padding: 0 10px;
+  margin: 0 auto;
+}
