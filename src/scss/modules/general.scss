@@ -1,0 +1,74 @@
+@use "sass:math";
+
+$defaultFontSize: 16;
+$widthContainer: 1610;
+$widthLaptopL: 1440;
+$widthLaptopS: 1024;
+$widthTablet: 768;
+$widthMobileL: 425;
+$widthMobileS: 320;
+
+
+@function toRem($px) {
+  @return math.div($px, $defaultFontSize)+rem;
+}
+@function toPx($px) {
+  @return $px+px;
+}
+
+@mixin responsive($property: "", $size1: 0, $size2: 0, $width1: 0, $width2: 0, $mode: "<>") {
+  // Mode: 
+  //  - "<>" uses @media (min-width/max-width: *) for calc()
+  //  - "<" uses @media (min-width only: *) for calc()
+  //  - ">" uses @media (max-width only: *) for calc()
+  //  - "" no uses @media... for calc()
+
+  $diffSize: math.abs($size1 - $size2);
+  $diffWidth: math.abs($width1 - $width2);
+  @if ($diffSize > 0 and $diffWidth > 0 and $property !="") {
+    $minSize: math.min($size1, $size2);
+    $maxSize: math.max($size1, $size2);
+    $minWidth: math.min($width1, $width2);
+    $maxWidth: math.max($width1, $width2);
+
+    // The best solution of responsive property:
+    // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+    $slope: math.div($diffSize, $diffWidth);
+    $intersect: (
+      -$minWidth)*$slope+$minSize;
+    $prefferedValue: #{toRem($intersect)}" + "#{$slope * 100}vw;
+
+    $clampValue: #{"clamp("toRem($minSize)","$prefferedValue"," toRem($maxSize)")"};
+    $calcValue: #{"calc("$prefferedValue")"};
+    // if [@supports] is not supports in browser;
+    #{$property}: toRem($minSize
+    );
+
+  // if [clamp()] is support
+  @supports (#{$property}:$clampValue) {
+    #{$property}: $clampValue;
+  }
+  // if [clamp()] is not support
+  @supports not (#{$property}:$clampValue) {
+    // if [calc()] is support
+    @supports (#{$property}: $calcValue) {
+      #{$property}: $calcValue;
+      @if ($mode ==">" or $mode =="<>") {
+        @media (min-width: #{$maxWidth}px) {
+          #{$property}: toRem($maxSize);
+        }
+      }
+      @if ($mode =="<" or $mode =="<>") {
+        @media (max-width: #{$minWidth}px) {
+          #{$property}: toRem($minSize);
+        }
+      }
+    }
+    // if [calc()] is not support
+    @supports not (#{$property}: $calcValue) {
+      #{$property}: toRem($minSize);
+    }
+  }
+}
+}
+// сделать зависимыми начальные и конечные значения

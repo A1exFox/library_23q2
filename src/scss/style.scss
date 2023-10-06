@@ -1,34 +1,24 @@
+@import 'modules/general';
+@import 'modules/normalize';
+@import 'modules/reset';
 @import 'fonts';
-* {
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Montserrat', serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 24px;
+@import 'modules/base';
 
-  display: flex;
-  display: grid;
-  display: block;
-  &>* {
-    padding: 10px;
-    border-radius: 7px;
-    margin: 1px;
-  }
-  @import 'header';
-  main {
-    background-color: gray;
-    background-image: url('../img/main/ksnip_20230816-144953.png');
-  }
-  p {
-    text-decoration: line-through;
-    text-align: center;
-    background-image: url('../img/youtube.svg');
-    @media (max-width: 768px) {
-      color: darkblue;
-    }
-  }
-  @import 'footer';
+@import 'header';
 
+.inter {
+  &_regular {
+    font-weight: 400;
+  }
+  &_bold {
+    font-weight: 700;
+  }
 }
+.forum {
+  &_regular {
+    font-family: 'Forum', sans-serif;
+  }
+}
+
+
+@import 'footer';
