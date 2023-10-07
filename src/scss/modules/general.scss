@@ -1,12 +1,15 @@
 @use "sass:math";
 
 $defaultFontSize: 16;
-$widthContainer: 1610;
+$widthContainer: 1410;
 $widthLaptopL: 1440;
 $widthLaptopS: 1024;
 $widthTablet: 768;
-$widthMobileL: 425;
-$widthMobileS: 320;
+// $widthMobileL: 425;
+// $widthMobileS: 320;
+
+$zBurger: 5;
+$zUser: 5;
 
 
 @function toRem($px) {

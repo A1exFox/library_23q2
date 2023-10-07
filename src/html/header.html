@@ -1,3 +1,25 @@
-<header>
-
+<header class="header">
+  <div class="header__container _container">
+    <h1 class="header__title">Brooklyn Public Library</h1>
+    <nav class="header__menu header-menu" data-menu-burger>
+      <ul class="header-menu__list">
+        <li class="header-menu__item"><a href="#" class="header-menu__link">About</a></li>
+        <li class="header-menu__item"><a href="#" class="header-menu__link">Favorites</a></li>
+        <li class="header-menu__item"><a href="#" class="header-menu__link">Coffee shop</a></li>
+        <li class="header-menu__item"><a href="#" class="header-menu__link">Contacts</a></li>
+        <li class="header-menu__item"><a href="#" class="header-menu__link">Library Card</a></li>
+      </ul>
+    </nav>
+    <div class="header__user header-user">
+      <button class="header-user__button" data-user="buttonuser">
+        <img class="header-user__icon" data-user="icondefault" src="@nst/img/header/user.svg" width="28" height="28" alt="">
+        <div class="header-user__profile" data-user="iconuser">JD</div>
+      </button>
+    </div>
+    <button class="header__burger header-burger" data-menu-burger="button">
+      <span class="header-burger__line"></span>
+      <span class="header-burger__line"></span>
+      <span class="header-burger__line"></span>
+    </button>
+  </div>
 </header>
