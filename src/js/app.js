@@ -1,6 +1,3 @@
-import { checkBurger } from "./modules/burger";
+import { clickDocument } from "./modules/clickDocument";
 
 document.addEventListener('click', clickDocument);
-function clickDocument(event) {
-  checkBurger(event.target);
-}
