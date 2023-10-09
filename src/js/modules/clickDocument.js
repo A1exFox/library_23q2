@@ -4,16 +4,39 @@ const CSS_ACTIVE = '_active';
 
 const dataElements = document.querySelectorAll(DATA_USER);
 const elements = getElements(dataElements, 'user');
+console.log(elements);
 
 export function clickDocument(event) {
   if (!elements) return;
   clickBurger(event);
   clickProfile(event);
   clickLogin(event);
+  clickRegister(event);
+  clickCloseModal(event);
+}
+
+function clickCloseModal(event) {
+  if (event.target != closeModal) return;
+  modalWindow.classList.remove(CSS_ACTIVE);
 }
 
 function clickLogin(event) {
-
+  const isSignInBtn1 = event.target == elements.loginButton;
+  const isSignInBtn2 = event.target == loginButton2;
+  if (!isSignInBtn1 && !isSignInBtn2) return;
+  loginBody.classList.add(CSS_ACTIVE);
+  registerBody.classList.remove(CSS_ACTIVE);
+  modalAuth.classList.add(CSS_ACTIVE);
+  modalWindow.classList.add(CSS_ACTIVE);
+}
+function clickRegister(event) {
+  const isSignUpBtn1 = event.target == elements.registerButton;
+  const isSignUpBtn2 = event.target == registerButton2;
+  if (!isSignUpBtn1 && !isSignUpBtn2) return;
+  loginBody.classList.remove(CSS_ACTIVE);
+  registerBody.classList.add(CSS_ACTIVE);
+  modalAuth.classList.add(CSS_ACTIVE);
+  modalWindow.classList.add(CSS_ACTIVE);
 }
 
 function clickProfile(event) {

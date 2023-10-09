@@ -1,0 +1,35 @@
+<div class="popup" id="modalWindow">
+  <div class="popup__auth popup-auth" id="modalAuth">
+    <div class="popup-auth__body _active" id="loginBody">
+      <div class="popup-auth__name">Login</div>
+      <form class="popup-auth__form" name="signin">
+        <label class="popup-auth__label" for="login">E-mail or readers card</label>
+        <input class="popup-auth__text" type="text" id="login" name="login" required>
+        <label class="popup-auth__label" for="password">Password</label>
+        <input class="popup-auth__text" type="password" id="password" name="password" required>
+        <button class="popup-auth__submit" type="submit">Log In</button>
+      </form>
+      <div class="popup-auth__question">
+        Don’t have an account?<button class="popup-auth__question-button" id="registerButton2">Register</button>
+      </div>
+    </div>
+    <div class="popup-auth__body" id="registerBody">
+      <div class="popup-auth__name">Register</div>
+      <form class="popup-auth__form" name="signup">
+        <label class="popup-auth__label" for="fname">First name</label>
+        <input class="popup-auth__text" type="text" id="fname" name="fname" required>
+        <label class="popup-auth__label" for="lname">Last name</label>
+        <input class="popup-auth__text" type="text" id="lname" name="lname" required>
+        <label class="popup-auth__label" for="email">E-mail</label>
+        <input class="popup-auth__text" type="email" id="email" name="email" required>
+        <label class="popup-auth__label" for="pass">Password</label>
+        <input class="popup-auth__text" type="password" id="pass" name="pass" required>
+        <button class="popup-auth__submit" type="submit">Sign Up</button>
+      </form>
+      <div class="popup-auth__question">
+        Already have an account?<button class="popup-auth__question-button" id="loginButton2">Login</button>
+      </div>
+    </div>
+    <button class="popup-auth__close" id="closeModal"></button>
+  </div>
+</div>

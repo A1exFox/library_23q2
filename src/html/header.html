@@ -12,14 +12,15 @@
     </nav>
     <div class="header__user header-user">
       <button class="header-user__button" data-user="buttonUser">
+        <!-- TODO: delete '_active' -->
         <img class="header-user__icon _active" data-user="iconDefault" src="@nst/img/header/user.svg" width="28" height="28" alt="">
         <div class="header-user__profile" data-user="iconUser">JD</div>
       </button>
-      <div class="header-user__spoller header-user-spoller _active" data-user="spollerUser">
+      <div class="header-user__spoller header-user-spoller" data-user="spollerUser">
         <div class="header-user-spoller__label">Profile</div>
         <div class="header-user-spoller__body _active" data-user="noauthBlock">
-          <button class="header-user-spoller__button" data-user="loginUser">Log In</button>
-          <button class="header-user-spoller__button" data-user="registerUser">Register</button>
+          <button class="header-user-spoller__button" data-user="loginButton">Log In</button>
+          <button class="header-user-spoller__button" data-user="registerButton">Register</button>
         </div>
         <div class="header-user-spoller__body" data-user="authBlock">
           <button class="header-user-spoller__button" data-user="prifileUser">My profile</button>
