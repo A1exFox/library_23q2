@@ -1,10 +1,10 @@
-const DATA_USER = '[data-user]';
+import { storage } from "./storage";
 
+const DATA_USER = '[data-user]';
 const CSS_ACTIVE = '_active';
 
 const dataElements = document.querySelectorAll(DATA_USER);
 const elements = getElements(dataElements, 'user');
-console.log(elements);
 
 export function clickDocument(event) {
   if (!elements) return;
@@ -13,10 +13,22 @@ export function clickDocument(event) {
   clickLogin(event);
   clickRegister(event);
   clickCloseModal(event);
+  clickLogout(event);
+}
+
+function clickLogout(event) {
+  if (event.target != elements.logoutUser) return;
+  const userdata = storage.get();
+  userdata.authorized = false;
+  storage.setUpdate(userdata);
 }
 
 function clickCloseModal(event) {
   if (event.target != closeModal) return;
+  closePopup();
+}
+
+export function closePopup() {
   modalWindow.classList.remove(CSS_ACTIVE);
 }
 
