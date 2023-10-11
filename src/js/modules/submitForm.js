@@ -1,20 +1,24 @@
 import { storage } from "./storage";
-import { closePopup } from "./clickDocument";
+import { removeAllActive } from "./clickDocument";
+import { md5 } from "./md5";
 
 export function submitForm(event) {
   event.preventDefault();
   if (event.target.name == 'signup') {
     if (event.target.elements.pass.value.length < 8) return;
-    const user = storage.get();
-    user.fname = event.target.elements.fname.value;
-    user.lname = event.target.elements.lname.value;
-    user.email = event.target.elements.email.value;
-    user.password = event.target.elements.pass.value;
-    user.authorized = true;
-    user.countVisit = 1;
-    user.cart = getCartNumber();
+    const { fname, lname, email, pass } = event.target.elements;
+    const user = {
+      fname: fname.value,
+      lname: lname.value,
+      email: email.value.toLowerCase(),
+      password: md5(pass.value),
+      card: getCardNumber(),
+      authorized: true,
+      vizits: 1,
+      books: []
+    }
     storage.setUpdate(user);
-    closePopup();
+    removeAllActive();
     event.target.elements.fname.value = '';
     event.target.elements.lname.value = '';
     event.target.elements.email.value = '';
@@ -22,26 +26,26 @@ export function submitForm(event) {
   }
   if (event.target.name == 'signin') {
     const user = storage.get();
-    const element = event.target.elements;
-    const login = element.login.value == user.email || element.login.value == user.cart;
-    const password = element.password.value == user.password;
-    if (!login || !password) return;
+    const inputLogin = event.target.elements.login.value.toLowerCase();
+    const cardLogin = user.card.toLowerCase();
+    const isLogin = inputLogin == cardLogin || inputLogin == user.email;
+    if (!isLogin) return;
+    const inputPassword = md5(event.target.elements.password.value);
+    const isPassword = inputPassword == user.password;
+    if (!isPassword) return;
     user.authorized = true;
+    user.vizits++;
     storage.setUpdate(user);
-    closePopup();
-    element.login.value = '';
-    element.password.value = '';
+    removeAllActive();
+    event.target.elements.login.value = '';
+    event.target.elements.password.value = '';
   }
 }
 
-function getCartNumber() {
-  let str16 = '';
-  while (str16.length < 9) {
-    str16 += getRandom().toString(16);
-  }
-  return str16.toUpperCase();
-}
-
-function getRandom() {
-  return Math.floor(Math.random() * 16);
+function getCardNumber() {
+  const min = Number(0xffffffff.toString());
+  const max = Number(0xfffffffff.toString());
+  const random = Math.floor(min + Math.random() * (max - min + 1));
+  const cardNumber = random.toString(16).toUpperCase();
+  return cardNumber;
 }

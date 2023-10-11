@@ -1,3 +1,34 @@
+._closeModal {
+  position: absolute;
+  right: toRem(15);
+  top: toRem(15);
+
+  width: toRem(15);
+  height: toRem(15);
+
+  background-color: transparent;
+  &::after {
+    content: '';
+    display: block;
+    height: toRem(2);
+    width: toRem(20);
+
+    background-color: $black_1;
+
+    transform: translate(-2px, -1px) rotate(45deg);
+  }
+  &::before {
+    content: '';
+    display: block;
+    height: toRem(2);
+    width: toRem(20);
+
+    background-color: $black_1;
+
+    transform: translate(-2px, 1px) rotate(-45deg);
+  }
+}
+
 .popup {
   position: fixed;
   left: 0;
@@ -19,15 +50,12 @@
 
   transition: 0.2s;
 
-  &._active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
-  }
   &__auth {
     transform: scale(0.85);
     transition: 0.2s;
   }
+  &__profile {}
+
   &._active {
     opacity: 1;
     visibility: visible;
@@ -40,10 +68,15 @@
 .popup-auth {
   position: relative;
 
+  display: none;
   width: toRem(250);
   padding: toRem(20) toRem(25);
 
   background-color: $white_1;
+
+  &._active {
+    display: block;
+  }
 
   &__body {
     display: none;
@@ -105,34 +138,120 @@
 
     background-color: transparent;
   }
-  &__close {
-    position: absolute;
-    right: toRem(15);
-    top: toRem(15);
-
-    width: toRem(15);
-    height: toRem(15);
-
-    background-color: transparent;
-    &::after {
-      content: '';
-      display: block;
-      height: toRem(2);
-      width: toRem(20);
-
-      background-color: $black_1;
-
-      transform: translate(-2px, -1px) rotate(45deg);
+  &__close {}
+}
+.popup-profile {
+  position: relative;
+  display: none;
+  width: toRem(600);
+  font-size: toRem(20);
+  &._active {
+    display: flex;
+  }
+  &__left {
+    flex: 0 0 toRem(170);
+    background-color: $black_1;
+  }
+  &__right {
+    flex: 0 0 toRem(430);
+    background-color: $white_1;
+  }
+}
+.profile-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__avatar {
+    width: toRem(80);
+    padding: toRem(30) 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: $burlywood_1;
+    background-color: $white_1;
+  }
+  &__fullname {
+    width: toRem(120);
+    padding: toRem(5);
+    margin-top: toRem(15);
+    text-transform: capitalize;
+    text-align: center;
+    background-color: $white_1;
+  }
+}
+.profile-right {
+  padding: toRem(40) toRem(20);
+  &__title {
+    font-family: 'Forum', sans-serif;
+    font-size: toRem(40);
+    letter-spacing: toRem(0.8);
+    line-height: 50%;
+    text-transform: uppercase;
+  }
+  &__actions {
+    display: flex;
+    margin-top: toRem(40);
+    text-align: center;
+  }
+  &__action {
+    &:not(:last-child) {
+      margin-right: toRem(20);
     }
-    &::before {
-      content: '';
-      display: block;
-      height: toRem(2);
-      width: toRem(20);
-
-      background-color: $black_1;
-
-      transform: translate(-2px, 1px) rotate(-45deg);
+    &>*:not(:last-child) {
+      margin-bottom: toRem(10);
     }
+  }
+  &__action-title {
+    letter-spacing: toRem(0.4);
+    text-transform: capitalize;
+  }
+  &__action-icon {
+    height: toRem(21);
+  }
+  &__action-img {
+    height: 100%;
+  }
+  &__action-text {
+    font-size: toRem(10);
+    line-height: 200%;
+    letter-spacing: toRem(0.2);
+  }
+  &__label {
+    margin-top: toRem(20);
+    font-size: toRem(25);
+    line-height: 80%;
+  }
+  &__list {
+    max-height: toRem(130);
+    margin-top: toRem(30);
+    overflow: auto;
+    &>* {
+      letter-spacing: toRem(0.2);
+      list-style: inside;
+      &:not(:last-child) {
+        margin-bottom: toRem(10);
+      }
+    }
+  }
+
+  &__cart {
+    display: flex;
+    align-items: center;
+    margin-top: toRem(40);
+    &>*:not(:last-child) {
+      margin-right: toRem(15);
+    }
+  }
+  &__cart-text {}
+  &__cart-number {
+    color: $burlywood_1;
+  }
+  &__button {
+    width: toRem(14);
+    height: toRem(12);
+  }
+  &__button-img {
+    width: 100%;
+    height: 100%;
   }
 }
