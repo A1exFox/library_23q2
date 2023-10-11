@@ -15,7 +15,8 @@ export function submitForm(event) {
       card: getCardNumber(),
       authorized: true,
       vizits: 1,
-      books: []
+      books: [],
+      bonuses: 0,
     }
     storage.setUpdate(user);
     removeAllActive();

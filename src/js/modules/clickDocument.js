@@ -5,6 +5,7 @@ const CSS_ACTIVE = '_active';
 
 const dataElements = document.querySelectorAll(DATA_USER);
 const elements = getElements(dataElements, 'user');
+// console.log(elements);
 
 export function clickDocument(event) {
   if (!elements) return;
@@ -14,7 +15,23 @@ export function clickDocument(event) {
   clickRegister(event);
   clickLogout(event);
   clickCloseModal(event);
-  // add _active to popup-auth
+  clickMyProfile(event);
+}
+
+function clickMyProfile(event) {
+  if (event.target != elements.prifileUser) return;
+
+  const user = storage.get();
+  profileInitial.textContent = user.fname[0] + user.lname[0];
+  profileFullName.textContent = `${user.fname} ${user.lname}`;
+  profileVisits.textContent = user.vizits;
+  profileBonuses.textContent = user.bonuses;
+  profileBooksCount.textContent = user.books.length;
+
+
+  removeAllActive();
+  const targets = [profileWindow, modalWindow];
+  addActive(targets);
 }
 
 function clickLogout(event) {
@@ -27,17 +44,6 @@ function clickLogout(event) {
 function clickCloseModal(event) {
   if (event.target != closeAuth && event.target != closeProfile) return;
   removeAllActive();
-}
-
-function closePopup() {
-  const objs = [
-    modalWindow,
-    modalAuth,
-    loginBody,
-    registerBody,
-    profileWindow,
-  ];
-  for (const obj of objs) obj.classList.remove('_active');
 }
 
 function clickLogin(event) {
