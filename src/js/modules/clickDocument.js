@@ -28,8 +28,8 @@ function clickMyProfile(event) {
   profileVisits.textContent = user.vizits;
   profileBonuses.textContent = user.bonuses;
   profileBooksCount.textContent = user.books.length;
-  // console.log(getBooksHtml(['1', '3'], books));
   listBooksProfile.insertAdjacentHTML('afterbegin', getBooksHtml(user.books, books));
+  cardNumberProfile.textContent = user.card;
 
   removeAllActive();
   const targets = [profileWindow, modalWindow];
