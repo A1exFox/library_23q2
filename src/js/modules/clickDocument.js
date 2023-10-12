@@ -1,4 +1,5 @@
 import { storage } from "./storage";
+import { books } from "./getBooks";
 
 const DATA_USER = '[data-user]';
 const CSS_ACTIVE = '_active';
@@ -20,14 +21,15 @@ export function clickDocument(event) {
 
 function clickMyProfile(event) {
   if (event.target != elements.prifileUser) return;
-
   const user = storage.get();
   profileInitial.textContent = user.fname[0] + user.lname[0];
   profileFullName.textContent = `${user.fname} ${user.lname}`;
   profileVisits.textContent = user.vizits;
   profileBonuses.textContent = user.bonuses;
   profileBooksCount.textContent = user.books.length;
+  if (books) {
 
+  }
 
   removeAllActive();
   const targets = [profileWindow, modalWindow];

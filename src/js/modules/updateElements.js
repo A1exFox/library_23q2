@@ -1,4 +1,6 @@
+import { storage } from "./storage";
 export function updateElements(userdata) {
+  userdata = userdata || storage.get();
   header(userdata);
 }
 
