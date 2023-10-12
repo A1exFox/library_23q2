@@ -1,5 +1,6 @@
 import { storage } from "./storage";
 import { books } from "./getBooks";
+import { getBooksHtml } from "./html";
 
 const DATA_USER = '[data-user]';
 const CSS_ACTIVE = '_active';
@@ -27,9 +28,8 @@ function clickMyProfile(event) {
   profileVisits.textContent = user.vizits;
   profileBonuses.textContent = user.bonuses;
   profileBooksCount.textContent = user.books.length;
-  if (books) {
-
-  }
+  // console.log(getBooksHtml(['1', '3'], books));
+  listBooksProfile.insertAdjacentHTML('afterbegin', getBooksHtml(user.books, books));
 
   removeAllActive();
   const targets = [profileWindow, modalWindow];
