@@ -9,8 +9,6 @@ body {
     overflow: hidden;
   }
 }
-
-
 .wrapper {
   min-height: 100%;
   overflow: hidden;
@@ -21,4 +19,34 @@ body {
   max-width: toPx($widthContainer);
   padding: 0 toPx(5);
   margin: 0 auto;
+}
+.titleblock {
+  &__title {
+    position: relative;
+    padding-bottom: toRem(21);
+    margin-bottom: toRem(40);
+    font-family: 'Forum', sans-serif;
+    font-size: toRem(40);
+    letter-spacing: toRem(2);
+    text-transform: capitalize;
+    line-height: 100%;
+    color: $black_1;
+    text-align: center;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: toRem(50);
+      height: toRem(1);
+      background-color: $black_1;
+      transform: translateX(-50%);
+    }
+  }
+  &__subtitle {
+    font-size: toRem(20);
+    line-height: 200%;
+    text-align: center;
+    color: $black_0;
+  }
 }
