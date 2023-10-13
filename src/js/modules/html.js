@@ -1,4 +1,4 @@
-export function getBooksHtml(ids, books) {
+export function inserthtml(ids, books) {
   if (!ids.length) return '<li>Nothing books</li>';
   let html = '';
   for (const id of ids) {

@@ -1,6 +1,6 @@
 import { storage } from "./storage";
 import { books } from "./getBooks";
-import { getBooksHtml } from "./html";
+import { inserthtml } from "./html";
 
 const DATA_USER = '[data-user]';
 const CSS_ACTIVE = '_active';
@@ -18,6 +18,13 @@ export function clickDocument(event) {
   clickLogout(event);
   clickCloseModal(event);
   clickMyProfile(event);
+  clickClipboardCard(event);
+}
+
+function clickClipboardCard(event) {
+  if (!event.target.closest('#clipboardCard')) return;
+  const cardNumber = cardNumberProfile.innerHTML;
+  if (cardNumber) navigator.clipboard.writeText(cardNumber);
 }
 
 function clickMyProfile(event) {
@@ -28,9 +35,8 @@ function clickMyProfile(event) {
   profileVisits.textContent = user.vizits;
   profileBonuses.textContent = user.bonuses;
   profileBooksCount.textContent = user.books.length;
-  listBooksProfile.insertAdjacentHTML('afterbegin', getBooksHtml(user.books, books));
+  listBooksProfile.insertAdjacentHTML('afterbegin', inserthtml(user.books, books));
   cardNumberProfile.textContent = user.card;
-
   removeAllActive();
   const targets = [profileWindow, modalWindow];
   addActive(targets);
