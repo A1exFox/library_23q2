@@ -1,3 +1,37 @@
-<header>
-
+<header class="header">
+  <div class="header__container _container">
+    <h1 class="header__title">Brooklyn Public Library</h1>
+    <nav class="header__menu header-menu" data-user="menuBurger" data-ignore="burger">
+      <ul class="header-menu__list" data-ignore="burger">
+        <li class="header-menu__item" data-ignore="burger"><a href="#" class="header-menu__link">About</a></li>
+        <li class="header-menu__item" data-ignore="burger"><a href="#" class="header-menu__link">Favorites</a></li>
+        <li class="header-menu__item" data-ignore="burger"><a href="#" class="header-menu__link">Coffee shop</a></li>
+        <li class="header-menu__item" data-ignore="burger"><a href="#" class="header-menu__link">Contacts</a></li>
+        <li class="header-menu__item" data-ignore="burger"><a href="#" class="header-menu__link">Library Card</a></li>
+      </ul>
+    </nav>
+    <div class="header__user header-user">
+      <button class="header-user__button" data-user="buttonUser">
+        <!-- TODO: delete '_active' -->
+        <img class="header-user__icon" data-user="iconDefault" src="@nst/img/header/user.svg" width="28" height="28" alt="">
+        <div class="header-user__profile" data-user="iconUser">JD</div>
+      </button>
+      <div class="header-user__spoller header-user-spoller" data-user="spollerUser">
+        <div class="header-user-spoller__label">Profile</div>
+        <div class="header-user-spoller__body" data-user="noauthBlock">
+          <button class="header-user-spoller__button" data-user="loginButton">Log In</button>
+          <button class="header-user-spoller__button" data-user="registerButton">Register</button>
+        </div>
+        <div class="header-user-spoller__body" data-user="authBlock">
+          <button class="header-user-spoller__button" data-user="prifileUser">My profile</button>
+          <button class="header-user-spoller__button" data-user="logoutUser">Log Out</button>
+        </div>
+      </div>
+    </div>
+    <button class="header__burger header-burger" data-user="buttonBurger">
+      <span class="header-burger__line"></span>
+      <span class="header-burger__line"></span>
+      <span class="header-burger__line"></span>
+    </button>
+  </div>
 </header>

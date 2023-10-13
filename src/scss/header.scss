@@ -1,1 +1,227 @@
-header {}
+.header {
+  background-color: $black_1;
+  &__container {
+    display: flex;
+    min-height: toRem(90);
+    align-items: center;
+
+    color: $white_1;
+  }
+  &__title {
+    flex: 1 1 auto;
+
+    font-family: 'Forum', sans-serif;
+    font-size: toRem(30);
+    line-height: 166.66%;
+    letter-spacing: toRem(0.6);
+    white-space: nowrap;
+  }
+  &__menu {}
+  &__user {}
+  &__burger {}
+}
+.header-menu {
+  transition: 0.3s;
+  @media (max-width: toPx($widthLaptopS)) {
+    position: fixed;
+    left: 100%;
+    top: 0;
+    &._active {
+      left: 0%;
+    }
+
+    width: 100%;
+    height: 100%;
+    padding-top: toRem(100);
+
+    background-color: $black_1;
+
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    column-gap: toRem(24);
+
+    font-size: toRem(20);
+    @media (max-width: toPx($widthLaptopS)) {
+      display: block;
+      height: 100%;
+
+      line-height: 250%;
+      text-align: center;
+
+      overflow: auto;
+
+      &>*:not(:last-child) {
+        margin-bottom: toRem(30);
+      }
+    }
+  }
+  &__item {
+    padding: toRem(3);
+  }
+  &__link {
+    display: inline-block;
+    &:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: toPx($widthLaptopS)) {
+      padding: 0 toRem(30);
+    }
+  }
+}
+.header-user {
+  position: relative;
+  z-index: $zUser;
+
+  margin-left: toRem(40);
+  &__button {
+    display: block;
+    width: toRem(28);
+    height: toRem(28);
+
+    background-color: transparent;
+
+    &>* {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__icon {
+    display: none;
+    &._active {
+      display: block;
+
+      transition: 0.3s;
+      &:hover {
+        filter: opacity(0.85);
+      }
+    }
+  }
+  &__profile {
+    display: none;
+
+    font-size: toRem(15);
+    line-height: 133%;
+    color: $burlywood_1;
+
+    background-color: $white_1;
+    border-radius: 50%;
+    &._active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+  }
+  &__spoller {}
+}
+.header-user-spoller {
+  position: absolute;
+  right: 0;
+  top: 100%;
+
+  min-width: toRem(80);
+  padding: toRem(5) 0 toRem(15) 0;
+  margin-top: toRem(15);
+
+  font-size: toRem(15);
+  line-height: 133%;
+  text-align: center;
+  color: $black_1;
+
+  background-color: $white_1;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition: 0.3s;
+
+  &._active {
+    margin-top: toRem(5);
+
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: all;
+  }
+
+  &__label {
+    position: relative;
+
+    font-weight: 700;
+    &::after {
+      content: "";
+      position: absolute;
+      left: toRem(20);
+      bottom: toRem(-4);
+
+      display: block;
+      width: toRem(40);
+      height: toRem(1);
+
+      background-color: $burlywood_1;
+    }
+  }
+  &__body {
+    display: none;
+    margin-top: toRem(15);
+    &._active {
+      display: block;
+    }
+  }
+  &__button {
+    display: block;
+    width: 100%;
+    padding: 5px 0;
+
+    line-height: inherit;
+
+    background-color: transparent;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.header-burger {
+  position: relative;
+  z-index: $zUser;
+
+  flex: 0 0 auto;
+  display: none;
+  margin: 0 toRem(15) 0 toRem(25);
+  padding: toRem(5) 0;
+  width: toRem(45);
+
+  background-color: transparent;
+
+  cursor: pointer;
+
+  @media (max-width: toPx($widthLaptopS)) {
+    display: block;
+  }
+  &__line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $white_1;
+    transition: 0.3s;
+    &:not(:last-child) {
+      margin-bottom: toRem(8);
+    }
+  }
+  &._active &__line {
+    &:first-child {
+      transform: translateY(10px) rotate(45deg);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:last-child {
+      transform: translateY(-9.8px) rotate(-45deg);
+    }
+  }
+}

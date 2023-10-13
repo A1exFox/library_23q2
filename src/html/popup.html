@@ -1,0 +1,77 @@
+<div class="popup" id="modalWindow">
+  <div class="popup__auth popup-auth" id="modalAuth">
+    <div class="popup-auth__body" id="loginBody">
+      <div class="popup-auth__name">Login</div>
+      <form class="popup-auth__form" name="signin">
+        <label class="popup-auth__label" for="login">E-mail or readers card</label>
+        <input class="popup-auth__text" type="text" id="login" name="login" required>
+        <label class="popup-auth__label" for="password">Password</label>
+        <input class="popup-auth__text" type="password" id="password" name="password" required>
+        <button class="popup-auth__submit" type="submit">Log In</button>
+      </form>
+      <div class="popup-auth__question">
+        Don’t have an account?<button class="popup-auth__question-button" id="registerButton2">Register</button>
+      </div>
+    </div>
+    <div class="popup-auth__body" id="registerBody">
+      <div class="popup-auth__name">Register</div>
+      <form class="popup-auth__form" name="signup">
+        <label class="popup-auth__label" for="fname">First name</label>
+        <input class="popup-auth__text" type="text" id="fname" name="fname" required>
+        <label class="popup-auth__label" for="lname">Last name</label>
+        <input class="popup-auth__text" type="text" id="lname" name="lname" required>
+        <label class="popup-auth__label" for="email">E-mail</label>
+        <input class="popup-auth__text" type="email" id="email" name="email" required>
+        <label class="popup-auth__label" for="pass">Password</label>
+        <input class="popup-auth__text" type="password" id="pass" name="pass" required>
+        <button class="popup-auth__submit" type="submit">Sign Up</button>
+      </form>
+      <div class="popup-auth__question">
+        Already have an account?<button class="popup-auth__question-button" id="loginButton2">Login</button>
+      </div>
+    </div>
+    <button class="popup-auth__close _closeModal" id="closeAuth"></button>
+  </div>
+  <div class="popup__profile popup-profile" id="profileWindow">
+    <div class="popup-profile__left profile-left">
+      <div class="profile-left__avatar" id="profileInitial">jd</div>
+      <div class="profile-left__fullname" id="profileFullName">john doe</div>
+    </div>
+    <div class="popup-profile__right profile-right">
+      <div class="profile-right__title">My profile</div>
+      <div class="profile-right__actions">
+        <div class="profile-right__action">
+          <div class="profile-right__action-title">visits</div>
+          <div class="profile-right__action-icon">
+            <img class="profile-right__action-img" src="@nst/img/modal/person.svg" alt="">
+          </div>
+          <div class="profile-right__action-text" id="profileVisits">23</div>
+        </div>
+        <div class="profile-right__action">
+          <div class="profile-right__action-title">bonuses</div>
+          <div class="profile-right__action-icon">
+            <img class="profile-right__action-img" src="@nst/img/modal/star.svg" alt="">
+          </div>
+          <div class="profile-right__action-text" id="profileBonuses">1240</div>
+        </div>
+        <div class="profile-right__action">
+          <div class="profile-right__action-title">Books</div>
+          <div class="profile-right__action-icon">
+            <img class="profile-right__action-img" src="@nst/img/modal/book.svg" alt="">
+          </div>
+          <div class="profile-right__action-text" id="profileBooksCount">2</div>
+        </div>
+      </div>
+      <div class="profile-right__label">Rented books</div>
+      <ul class="profile-right__list" id="listBooksProfile"></ul>
+      <div class="profile-right__cart">
+        <div class="profile-right__cart-text">Card number</div>
+        <div class="profile-right__cart-number" id="cardNumberProfile">F00234030</div>
+        <button class="profile-right__button" id="clipboardCard">
+          <img class="profile-right__button-img" src="@nst/img/modal/copy.svg" alt="">
+        </button>
+      </div>
+    </div>
+    <button class="popup-profile__close _closeModal" id="closeProfile"></button>
+  </div>
+</div>

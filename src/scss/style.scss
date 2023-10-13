@@ -2,23 +2,10 @@
 @import 'modules/normalize';
 @import 'modules/reset';
 @import 'fonts';
+@import 'modules/colors';
+
 @import 'modules/base';
 
 @import 'header';
-
-.inter {
-  &_regular {
-    font-weight: 400;
-  }
-  &_bold {
-    font-weight: 700;
-  }
-}
-.forum {
-  &_regular {
-    font-family: 'Forum', sans-serif;
-  }
-}
-
-
 @import 'footer';
+@import 'popup';
