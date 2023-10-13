@@ -7,6 +7,7 @@ export function submitForm(event) {
   if (event.target.name == 'signup') {
     if (event.target.elements.pass.value.length < 8) return;
     const { fname, lname, email, pass } = event.target.elements;
+    const books = Array(2).fill(0).map(() => String(getRandom(0, 15)));
     const user = {
       fname: fname.value,
       lname: lname.value,
@@ -15,7 +16,7 @@ export function submitForm(event) {
       card: getCardNumber(),
       authorized: true,
       vizits: 1,
-      books: [],
+      books,
       bonuses: 0,
     }
     storage.setUpdate(user);
@@ -43,10 +44,15 @@ export function submitForm(event) {
   }
 }
 
+
 function getCardNumber() {
-  const min = Number(0xffffffff.toString());
-  const max = Number(0xfffffffff.toString());
-  const random = Math.floor(min + Math.random() * (max - min + 1));
+  const min = 0xffffffff;
+  const max = 0xfffffffff;
+  const random = getRandom(min, max);
   const cardNumber = random.toString(16).toUpperCase();
   return cardNumber;
+}
+
+function getRandom(min, max) {
+  return Math.floor(min + Math.random() * (max - min + 1));
 }
