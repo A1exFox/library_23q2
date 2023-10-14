@@ -1,0 +1,44 @@
+.about {
+  &__container {}
+  &__titleblock {
+    margin-bottom: toRem(20);
+  }
+  &__title {}
+  &__subtitle {}
+  &__frame {
+    margin-bottom: toRem(40);
+    overflow: hidden;
+  }
+  &__slider {
+    display: flex;
+  }
+  &__image {
+    width: toRem(450);
+    height: toRem(560);
+    &:not(:last-child) {
+      margin-right: toRem(25);
+    }
+  }
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
+  &__button {
+    background-color: transparent;
+    &::after {
+      content: '';
+      display: block;
+      width: toRem(16);
+      height: toRem(16);
+      margin: toRem(5);
+      background-color: $black_1;
+      border-radius: 50%;
+    }
+    &:disabled {
+      cursor: default;
+      &::after {
+        background-color: $burlywood_1;
+      }
+    }
+  }
+}
