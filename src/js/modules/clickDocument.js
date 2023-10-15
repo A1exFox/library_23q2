@@ -1,6 +1,7 @@
 import { storage } from "./storage";
 import { books } from "./getBooks";
 import { inserthtml } from "./html";
+import * as about from "./about";
 
 const DATA_USER = '[data-user]';
 const CSS_ACTIVE = '_active';
@@ -19,6 +20,7 @@ export function clickDocument(event) {
   clickCloseModal(event);
   clickMyProfile(event);
   clickClipboardCard(event);
+  about.clickSlider(event);
 }
 
 function clickClipboardCard(event) {

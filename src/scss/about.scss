@@ -5,12 +5,73 @@
   }
   &__title {}
   &__subtitle {}
-  &__frame {
+  &__body {
+    position: relative;
+    margin: 0 auto;
     margin-bottom: toRem(40);
+    @media (max-width: toPx(1430)) {
+      width: toRem(925);
+    }
+    @media (max-width: toPx(1060)) {
+      width: toRem(450);
+    }
+  }
+  &__frame {
     overflow: hidden;
   }
   &__slider {
     display: flex;
+    transition: 0.5s;
+    &._offset0 {
+      margin-left: toRem(0);
+    }
+    &._offset475 {
+      margin-left: toRem(-475);
+    }
+    &._offset950 {
+      margin-left: toRem(-950);
+    }
+    &._offset950 {
+      margin-left: toRem(-950);
+    }
+    &._offset1425 {
+      margin-left: toRem(-1425);
+    }
+    &._offset1900 {
+      margin-left: toRem(-1900);
+    }
+  }
+  &__listing {
+    position: absolute;
+    left: toRem(-58);
+    right: toRem(-58);
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  &__side-button {
+    padding: toRem(7) toRem(9);
+    background-color: transparent;
+    opacity: 0;
+    visibility: hidden;
+    @media (max-width: toPx(1430)) {
+      opacity: 1;
+      visibility: visible;
+      transition: 0.3s;
+      &:hover {
+        opacity: 0.7;
+      }
+      &:disabled {
+        cursor: default;
+        opacity: 0.3;
+      }
+    }
+  }
+  &__side-image {
+    display: block;
+    width: toRem(6);
+    height: toRem(9);
   }
   &__image {
     width: toRem(450);
@@ -22,6 +83,25 @@
   &__buttons {
     display: flex;
     justify-content: center;
+    &>* {
+      &:nth-child(4) {
+        opacity: 0;
+        visibility: hidden;
+        @media (max-width: toPx(1430)) {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      &:nth-child(5) {
+        opacity: 0;
+        visibility: hidden;
+        @media (max-width: toPx(1060)) {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
   }
   &__button {
     background-color: transparent;
@@ -33,10 +113,15 @@
       margin: toRem(5);
       background-color: $black_1;
       border-radius: 50%;
+      transition: 0.3s;
+    }
+    &:hover::after {
+      opacity: 0.8;
     }
     &:disabled {
       cursor: default;
       &::after {
+        opacity: 1;
         background-color: $burlywood_1;
       }
     }
