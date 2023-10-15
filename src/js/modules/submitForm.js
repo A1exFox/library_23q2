@@ -44,7 +44,6 @@ export function submitForm(event) {
   }
 }
 
-
 function getCardNumber() {
   const min = 0xffffffff;
   const max = 0xfffffffff;
