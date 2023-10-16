@@ -1,43 +1,42 @@
 .favorite {
-  &__radio-group {
-    margin-bottom: toRem(40);
-
-    & label {
-      position: relative;
-      display: inline-block;
-      padding-left: toRem(37);
-      & input {
-        position: absolute;
-        display: block;
-        height: 0;
-        width: 0;
-        overflow: hidden;
-        &~span {
-          position: absolute;
-          display: inline-block;
-          left: 0;
-          top: 0;
-          width: toRem(17);
-          height: toRem(17);
-          border-radius: 50%;
-          border: toRem(2) solid $black_0;
-          &::before {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 100%;
-            background-color: $white_1;
-            border-radius: 50%;
-            border: toRem(4) solid white;
-            transition: 0.3s;
-          }
-        }
-        &:checked~span::before {
-          background-color: $black_0;
-        }
-      }
-    }
-  }
+  // &__radio-group {
+  //   margin-bottom: toRem(40);
+  //   & label {
+  //     position: relative;
+  //     display: inline-block;
+  //     padding-left: toRem(37);
+  //     & input {
+  //       position: absolute;
+  //       display: block;
+  //       height: 0;
+  //       width: 0;
+  //       overflow: hidden;
+  //       &~span {
+  //         position: absolute;
+  //         display: inline-block;
+  //         left: 0;
+  //         top: 0;
+  //         width: toRem(17);
+  //         height: toRem(17);
+  //         border-radius: 50%;
+  //         border: toRem(2) solid $black_0;
+  //         &::before {
+  //           content: "";
+  //           display: block;
+  //           width: 100%;
+  //           height: 100%;
+  //           background-color: $white_1;
+  //           border-radius: 50%;
+  //           border: toRem(4) solid white;
+  //           transition: 0.3s;
+  //         }
+  //       }
+  //       &:checked~span::before {
+  //         background-color: $black_0;
+  //       }
+  //     }
+  //   }
+  // }
   &__books {}
 }
 .book-container {
@@ -115,8 +114,13 @@
     border-radius: toRem(2);
     background-color: transparent;
     transition: 0.3s;
-    &:hover {
+    &:hover:not(:disabled) {
       opacity: 0.8;
+    }
+    &:disabled {
+      cursor: default;
+      border-color: $burlywood_1;
+      color: $burlywood_1;
     }
   }
   &__image {
