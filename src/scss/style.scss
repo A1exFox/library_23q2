@@ -9,7 +9,13 @@
 @import 'header';
 .main {
   &__welcome {}
-  &__about {}
+  &__about {
+    padding-top: toRem(20);
+    padding-bottom: toRem(40);
+  }
+  &__favorite {
+    padding-top: toRem(20);
+  }
 }
 @import 'welcome';
 @import 'about';

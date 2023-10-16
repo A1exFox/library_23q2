@@ -1,5 +1,4 @@
 .about {
-  margin-top: toRem(20);
   &__container {}
   &__titleblock {
     margin-bottom: toRem(20);
@@ -86,19 +85,15 @@
     justify-content: center;
     &>* {
       &:nth-child(4) {
-        opacity: 0;
-        visibility: hidden;
+        display: none;
         @media (max-width: toPx(1430)) {
-          opacity: 1;
-          visibility: visible;
+          display: block;
         }
       }
       &:nth-child(5) {
-        opacity: 0;
-        visibility: hidden;
+        display: none;
         @media (max-width: toPx(1060)) {
-          opacity: 1;
-          visibility: visible;
+          display: block;
         }
       }
     }
