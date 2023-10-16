@@ -1,0 +1,131 @@
+.favorite {
+  &__radio-group {
+    margin-bottom: toRem(40);
+
+    & label {
+      position: relative;
+      display: inline-block;
+      padding-left: toRem(37);
+      & input {
+        position: absolute;
+        display: block;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        &~span {
+          position: absolute;
+          display: inline-block;
+          left: 0;
+          top: 0;
+          width: toRem(17);
+          height: toRem(17);
+          border-radius: 50%;
+          border: toRem(2) solid $black_0;
+          &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: $white_1;
+            border-radius: 50%;
+            border: toRem(4) solid white;
+            transition: 0.3s;
+          }
+        }
+        &:checked~span::before {
+          background-color: $black_0;
+        }
+      }
+    }
+  }
+  &__books {}
+}
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media (max-width: toPx(1210)) {
+    justify-content: center;
+    gap: toRem(40);
+  }
+  &__item {
+    position: relative;
+    flex: 0 1 toRem(590);
+    display: flex;
+    flex-direction: column;
+  }
+  &__text-block {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: toRem(550);
+    padding: toRem(15) toRem(20);
+    border: 1px solid $black_0;
+    &>*:not(:last-child) {
+      margin-bottom: toRem(20);
+    }
+  }
+  &__staff-picks {
+    position: relative;
+    font-family: 'Forum', sans-serif;
+    font-size: toRem(20);
+    line-height: 200%;
+    letter-spacing: toRem(2);
+    text-transform: capitalize;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 0;
+      bottom: 0;
+      height: toRem(1);
+      width: toRem(60);
+      background-color: $burlywood_1;
+    }
+  }
+  &__header {
+    font-size: toRem(15);
+    font-weight: 700;
+    line-height: 266.66%;
+    letter-spacing: toRem(2);
+  }
+  &__title {
+    text-transform: uppercase;
+  }
+  &__author {
+    text-transform: capitalize;
+  }
+  &__description {
+    flex: 1 0 auto;
+    max-width: toRem(355);
+    margin-bottom: toRem(15);
+    font-size: toRem(15);
+    line-height: 266.66%;
+    letter-spacing: toRem(2);
+    text-transform: capitalize;
+  }
+  &__button {
+    display: inline-block;
+    width: toRem(75);
+    height: toRem(30);
+    font-size: toRem(10);
+    font-weight: 700;
+    letter-spacing: toRem(1);
+    border: toRem(1) solid $black_1;
+    border-radius: toRem(2);
+    background-color: transparent;
+    transition: 0.3s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  &__img {
+    width: toRem(200);
+    height: toRem(300);
+  }
+}
