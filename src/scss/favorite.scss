@@ -1,42 +1,54 @@
 .favorite {
-  // &__radio-group {
-  //   margin-bottom: toRem(40);
-  //   & label {
-  //     position: relative;
-  //     display: inline-block;
-  //     padding-left: toRem(37);
-  //     & input {
-  //       position: absolute;
-  //       display: block;
-  //       height: 0;
-  //       width: 0;
-  //       overflow: hidden;
-  //       &~span {
-  //         position: absolute;
-  //         display: inline-block;
-  //         left: 0;
-  //         top: 0;
-  //         width: toRem(17);
-  //         height: toRem(17);
-  //         border-radius: 50%;
-  //         border: toRem(2) solid $black_0;
-  //         &::before {
-  //           content: "";
-  //           display: block;
-  //           width: 100%;
-  //           height: 100%;
-  //           background-color: $white_1;
-  //           border-radius: 50%;
-  //           border: toRem(4) solid white;
-  //           transition: 0.3s;
-  //         }
-  //       }
-  //       &:checked~span::before {
-  //         background-color: $black_0;
-  //       }
-  //     }
-  //   }
-  // }
+  &__radio-group-title {
+    font-size: toRem(20);
+    font-weight: 700;
+    margin-bottom: toRem(35);
+  }
+  &__radio-group {
+    display: inline-flex;
+    column-gap: toRem(90);
+    padding: toRem(5);
+    margin-bottom: toRem(35);
+    border-radius: toRem(7);
+    & input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      &:checked+label {
+        font-weight: 700;
+        &::after {
+          background-color: #000000;
+        }
+      }
+    }
+    & label {
+      position: relative;
+      display: inline-flex;
+      column-gap: toRem(20);
+      align-items: center;
+      font-size: toRem(20);
+      text-transform: capitalize;
+      &::before {
+        content: "";
+        width: toRem(17);
+        height: toRem(17);
+        background-color: #000000;
+        border-radius: 50%;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: toRem(13);
+        height: toRem(13);
+        left: toRem(2);
+        background-color: #ffffff;
+        border: toRem(3.5) solid #ffffff;
+        border-radius: 50%;
+        transition: 0.3s;
+      }
+    }
+  }
   &__books {}
 }
 .book-container {
